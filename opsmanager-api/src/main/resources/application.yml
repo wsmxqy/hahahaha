@@ -1,0 +1,7 @@
+server:
+  servlet:
+    context-path: /opsmanager
+  port: 8081
+spring:
+  profiles:
+    include: dao

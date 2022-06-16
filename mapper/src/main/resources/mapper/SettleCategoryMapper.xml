@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.his.dao.SettleCategoryMapper">
+    <!--public T selectMessageByCondition(T t);-->
+    <!--动态sql判断参数pojo中的属性,根据属性是否为null拼接sql-->
+    <select id="selectMessageByCondition" resultType="settleCategory" parameterType="settleCategory">
+        select * from settle_category
+        <where>
+            <if test="id!=null and id!=''">
+                and id=#{id}
+            </if>
+            <if test="settle_code!=null and settle_code!=''">
+                and settle_code=#{settle_code}
+            </if>
+            <if test="settle_name!=null and settle_name!=''">
+                and settle_name=#{settle_name}
+            </if>
+            <if test="sequence_no!=null and sequence_no!=''">
+                and sequence_no=#{sequence_no}
+            </if>
+            <if test="delmark!=null and delmark!=''">
+                and delmark=#{delmark}
+            </if>
+        </where>
+    </select>
+
+</mapper>

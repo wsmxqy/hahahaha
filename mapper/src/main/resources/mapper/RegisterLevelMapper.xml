@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.his.dao.RegisterLevelMapper">
+    <!--public T selectMessageByCondition(T t);-->
+    <!--动态sql判断参数pojo中的属性,根据属性是否为null拼接sql-->
+    <select id="selectMessageByCondition" resultType="RegisterLevel" parameterType="RegisterLevel">
+        select * from regist_level
+        <where>
+            <if test="id!=null and id!=''">
+                and id=#{id}
+            </if>
+            <if test="regist_code!=null and regist_code!=''">
+                and regist_code=#{regist_code}
+            </if>
+            <if test="regist_name!=null and regist_name!=''">
+                and regist_name=#{regist_name}
+            </if>
+            <if test="regist_fee!=null and regist_fee!=''">
+                and regist_fee=#{regist_fee}
+            </if>
+            <if test="sequence_no!=null and sequence_no!=''">
+                and sequence_no=#{sequence_no}
+            </if>
+            <if test="delmark!=null and delmark!=''">
+                and delmark=#{delmark}
+            </if>
+        </where>
+    </select>
+
+</mapper>

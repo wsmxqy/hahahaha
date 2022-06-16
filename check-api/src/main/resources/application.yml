@@ -1,0 +1,7 @@
+server:
+  servlet:
+    context-path: /check
+  port: 8082
+spring:
+  profiles:
+    include: dao

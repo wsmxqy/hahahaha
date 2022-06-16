@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.his.dao.DepartmentMapper">
+    <!--public T selectMessageByCondition(T t);-->
+    <!--动态sql判断参数pojo中的属性,根据属性是否为null拼接sql-->
+    <select id="selectMessageByCondition" resultType="department" parameterType="department">
+        select * from department
+        <where>
+            <if test="id!=null and id!=''">
+                and id=#{id}
+            </if>
+            <if test="dept_code!=null and dept_code!=''">
+                and dept_code=#{dept_code}
+            </if>
+            <if test="dept_name!=null and dept_name!=''">
+                and dept_name=#{dept_name}
+            </if>
+            <if test="dept_type!=null and dept_type!=''">
+                and dept_type=#{dept_type}
+            </if>
+            <if test="delmark!=null and delmark!=''">
+                and delmark=#{delmark}
+            </if>
+        </where>
+    </select>
+
+</mapper>
